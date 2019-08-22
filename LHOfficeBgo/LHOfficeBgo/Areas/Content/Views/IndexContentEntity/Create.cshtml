@@ -1,0 +1,51 @@
+﻿@using Newtonsoft.Json
+@model LHOfficeBgo.ViewModel.Content.IndexContentEntityVMs.IndexContentEntityVM
+
+<wt:form vm="@Model">
+    <wt:row items-per-row="ItemsPerRowEnum.One">
+        <wt:textbox field="Entity.Title" />
+        <wt:textbox field="Entity.SubTitle" />
+    </wt:row>
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:combobox field="Entity.IndexMenusId" items="@Model.ContentMenus" enable-search="true"  />
+        <div style="overflow-y:scroll;height: 200px;">
+        <div class="layui-col-md6">
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <ul id="IndexMenusIdTree" class="layui-box layui-tree"></ul>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        <wt:textbox field="Entity.FromSource" />
+        <wt:combobox field="Entity.IsTop" />
+        <wt:combobox field="Entity.Status" />
+    </wt:row>
+    <wt:row items-per-row="ItemsPerRowEnum.One">
+        <wt:richtextbox field="Entity.Text" height="300" />
+    </wt:row>
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:textbox field="Entity.GoodCount" />
+        <wt:combobox field="Entity.GoodCountStatus" />
+    </wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
+<script>
+    $(function() {
+        layui.tree.render({
+            elem: '#IndexMenusIdTree',
+            id:"IndexMenusIdTree",
+            data:@Html.Raw(JsonConvert.SerializeObject(Model.ContentMenusTree)),
+            click:function(node) {
+                if (node.data.id) {
+                    $("#IndexContentEntityVM_Entity_IndexMenusId").val(node.data.id);
+                    layui.form.render('select');
+                }
+            }
+        });
+    })
+</script>

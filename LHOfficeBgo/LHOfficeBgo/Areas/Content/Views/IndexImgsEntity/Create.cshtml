@@ -1,0 +1,53 @@
+﻿@using Newtonsoft.Json
+@model LHOfficeBgo.ViewModel.Content.IndexImgsEntityVMs.IndexImgsEntityVM
+
+<wt:form vm="@Model">
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:combobox field="Entity.IndexMenusId"  items="@Model.ContentMenus" enable-search="true" />
+        <div style="overflow-y:scroll;height: 200px;">
+        <div class="layui-col-md6">
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <ul id="IndexMenusIdTree" class="layui-box layui-tree"></ul>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        <wt:combobox field="Entity.IsAuto"/>
+        <wt:textbox field="Entity.Speed"/>
+        <div id="imgsSection">
+        </div>
+        <wt:row align="AlignEnum.Left">
+            <div class="layui-col-md1">
+                <div class="layui-form-item">
+                    <div class="layui-input-block" style="margin-left: 0px">
+                        <label id="btnAddImgSection" class="layui-btn">+</label>
+                    </div>
+                </div>
+
+            </div>
+        </wt:row>
+    </wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
+<script>
+    $(function() {
+        LhIndexImgs.init();
+        $("#btnAddImgSection").click();
+            layui.tree.render({
+                elem: '#IndexMenusIdTree',
+                id:"IndexMenusIdTree",
+                data:@Html.Raw(JsonConvert.SerializeObject(Model.ContentMenusTree)),
+                click:function(node) {
+                  if (node.data.id) {
+                      $("#IndexImgsEntityVM_Entity_IndexMenusId").val(node.data.id);
+                      layui.form.render('select');
+                  }
+                }
+        });
+    })
+</script>

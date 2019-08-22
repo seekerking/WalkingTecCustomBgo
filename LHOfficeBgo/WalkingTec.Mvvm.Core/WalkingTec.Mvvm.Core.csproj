@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>WalkingTec.Mvvm</Description>
+    <AssemblyName>WalkingTec.Mvvm.Core</AssemblyName>
+    <Title>$(AssemblyName)</Title>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="DotNetCore.NPOI" Version="1.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.4" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
+    <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppSys.HuaWeiOBS\esdk_obs_.net_core.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="CacheOptions\" />
+  </ItemGroup>
+
+</Project>

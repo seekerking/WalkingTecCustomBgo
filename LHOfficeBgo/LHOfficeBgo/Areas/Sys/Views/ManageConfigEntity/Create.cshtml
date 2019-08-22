@@ -1,0 +1,14 @@
+﻿@model LHOfficeBgo.ViewModel.Sys.ManageConfigEntityVMs.ManageConfigEntityVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:textbox field="Entity.DataKey" />
+<wt:textbox field="Entity.IosDownLoadUrl" />
+<wt:textbox field="Entity.AndroidDownLoadUrl" />
+<wt:textbox field="Entity.QrCodeUrl" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

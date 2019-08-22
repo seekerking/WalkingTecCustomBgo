@@ -1,0 +1,28 @@
+﻿@model LHOfficeBgo.ViewModel.Content.IndexMenusEntityVMs.IndexMenusEntityVM
+
+<wt:form vm="@Model">
+    <wt:quote>确定要删除这条数据么：</wt:quote>
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        @if (!Model.ParentId.HasValue)
+        { <wt:display field="Entity.LayOutKey" />
+        <wt:display field="Entity.Name" />
+        <wt:display field="Entity.SortOrder" />
+        }
+        else
+        {
+        <wt:display field="Entity.ParentId" />
+        <wt:display field="Entity.Name" />
+        <wt:display field="Entity.Url" />
+        <wt:display field="Entity.SortOrder" />
+
+        <wt:display field="Entity.DefaultImg" />
+        <wt:display field="Entity.HoverImg" />
+        <wt:display field="Entity.IsShow" />
+        }
+    </wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align=" AlignEnum.Right">
+        <wt:submitbutton theme=" ButtonThemeEnum.Warm" text="删除" />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
