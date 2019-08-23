@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
-using Microsoft.Extensions.Caching.Memory;
+using AppSys.Utility;
 using WalkingTec.Mvvm.Core.CacheOptions;
 
 namespace WalkingTec.Mvvm.Mvc.Helper
 {
-  public  static class ImageCodeHelper
+    public  static class ImageCodeHelper
   {
       public const string CacheKey = "PersonImageValidatePredix";
         public static byte[] ImageCodeToByte(string uuid)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace WalkingTec.Mvvm.Mvc.Helper
+namespace AppSys.Utility
 {
     public static class RandomHelper
     {
