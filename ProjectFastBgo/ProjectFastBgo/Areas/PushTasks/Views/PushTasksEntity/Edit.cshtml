@@ -1,0 +1,19 @@
+﻿@model ProjectFastBgo.ViewModel.PushTasks.PushTasksEntityVMs.PushTasksEntityVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.One">
+<wt:combobox field="Entity.Cid" />
+<wt:textbox field="Entity.Av" label-width="120"/>
+<wt:textbox field="Entity.TaskTitle" />
+<wt:textbox field="Entity.TaskBody" />
+<wt:datetime field="Entity.TaskFireTime" type="Datetime" />
+<wt:combobox field="Entity.TaskJumpType" items="JumpType" />
+<wt:textbox field="Entity.Url" />
+<wt:combobox field="Entity.TaskState" />
+</wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/upload.css">
+</head>
+<body>
+<div id="app">
+    <vue-uploader
+        access-key="XUGWR6RI34BX4IPB6KBN"
+        secret-key="ycHfTd2ehvE4ToEqEBCoBn0CmTDa9erfw9CXWefJ"
+        server="https://obs.cn-north-4.myhuaweicloud.com"
+        bucket="obs-wnl-images-other"
+        file-base-url="https://huaweiyun.other.51wnl-cq.com"
+        @success="onSuccess"
+    ></vue-uploader>
+</div>
+
+<script src="./js/vue.min.js"></script>
+<script src="./js/esdk-obs-browserjs-3.19.5.min.js"></script>
+<script src="./js/upload.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        methods: {
+            onSuccess: function(filePath) {
+                console.log(filePath)
+            }
+        }
+    })
+</script>
+</body>
+</html>

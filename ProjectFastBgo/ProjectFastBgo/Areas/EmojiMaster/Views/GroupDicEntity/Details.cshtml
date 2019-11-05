@@ -1,0 +1,12 @@
+﻿@model ProjectFastBgo.ViewModel.EmojiMaster.GroupDicEntityVMs.GroupDicEntityVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.Title" />
+<wt:display field="Entity.Type" />
+<wt:display field="Entity.Sort" />
+</wt:row>
+    <wt:row align=" AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

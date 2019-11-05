@@ -1,0 +1,59 @@
+﻿@model ProjectFastBgo.ViewModel.TikTokSound.TopHotSoundEntityVMs.TopHotSoundEntityListVM
+
+<wt:searchpanel vm="@Model" reset-btn="true">
+    <wt:row items-per-row="ItemsPerRowEnum.Three">
+        <wt:combobox field="Searcher.MenuType"/>
+    </wt:row>
+</wt:searchpanel>
+<wt:grid vm="@Model" />
+<script>
+
+
+    var TikTokTopHotSoundIndex = {
+        deleteImg: function (obj) {
+            $(obj).parent().parent().remove();
+        },
+        initUploadImgObj: function (id,width) {
+
+            var index = 0;
+            var url = '/_Framework/UploadImage?1=1&_DONOT_USE_CS=default&saveInDb=false';
+            if (width) {
+                url += "&width=" + width;
+            }
+            //普通图片上传
+            var uploadImgInit = layui.upload.render({
+                elem: '#' + id
+                , url:url
+                , size: 0
+                , accept: 'file'
+                , exts: 'jpg|jpeg|gif|bmp|png|tif'
+                , before: function (obj) {
+                    index = layui.layer.load(2);
+                }
+                , done: function (res) {
+                    layui.layer.close(index);
+                    if (res.Data.Id == '') {
+
+                        layui.layer.msg('上传失败');
+                    }
+                    else {
+                        if (id == "EntityImgUploadButton") {
+
+                           $("#TopHotSoundEntityVM_Entity_Img").val(res.Data.Url);
+                           $("#EntityImgDetail").attr("src", res.Data.Url +"?imageMogr2/thumbnail/x441");
+
+                        }
+
+
+
+                    }
+                }
+                , error: function () {
+                    layui.layer.close(index);
+                }
+            });
+        }
+
+    };
+</script>
+

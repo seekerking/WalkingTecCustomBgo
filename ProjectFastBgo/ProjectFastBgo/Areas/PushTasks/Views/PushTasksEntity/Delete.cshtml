@@ -1,0 +1,20 @@
+﻿@model ProjectFastBgo.ViewModel.PushTasks.PushTasksEntityVMs.PushTasksEntityVM
+
+<wt:form vm="@Model">
+	<wt:quote>确定要删除这条数据么：</wt:quote>
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.Cid" />
+<wt:display field="Entity.Av" />
+<wt:display field="Entity.TaskTitle" />
+<wt:display field="Entity.TaskBody" />
+<wt:display field="Entity.TaskFireTime" />
+<wt:display field="Entity.TaskJumpType" />
+<wt:display field="Entity.Url" />
+<wt:display field="Entity.TaskState" />
+</wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align=" AlignEnum.Right">
+        <wt:submitbutton theme=" ButtonThemeEnum.Warm" text="删除"/>
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

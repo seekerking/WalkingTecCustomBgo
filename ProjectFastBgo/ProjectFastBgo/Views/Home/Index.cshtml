@@ -1,0 +1,23 @@
+﻿@using ProjectFastBgo.ViewModel.HomeVMs
+@model ProjectFastBgo.ViewModel.HomeVMs.IndexVM
+@{
+    Layout = "_Layout";
+}
+
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        @await Html.PartialAsync("Header", Model)
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        @await Html.PartialAsync("Menu", Model)
+    </div>
+
+    <div class="layui-body" id="DONOTUSE_MAINPANEL">
+        <!-- 内容主体区域 -->
+    </div>
+
+    <div class="layui-footer">
+        可兰达通用快速管理平台
+    </div>
+</div>

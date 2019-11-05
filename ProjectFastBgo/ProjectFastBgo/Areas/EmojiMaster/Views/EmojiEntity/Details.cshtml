@@ -1,0 +1,25 @@
+﻿@model ProjectFastBgo.ViewModel.EmojiMaster.EmojiEntityVMs.EmojiEntityVM
+
+<wt:form vm="@Model">
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:display field="Entity.Title" />
+        <wt:display field="Entity.GroupDicEntity.Title" />
+        <wt:display field="Entity.Sort" />
+    </wt:row>
+    <wt:row items-per-row="ItemsPerRowEnum.One">
+        <div class="layui-col-md12">
+            <div class="layui-row ">
+                <div class="layui-input-block" style="margin-left: 0px">
+                    <label class="layui-form-label">表情图:</label>
+                    <div class="layui-col-md8">
+                        <img src="@Html.Raw(Model.Entity.Img + "?imageMogr2/thumbnail/x148")" width="148" height="128">
+                    </div>
+                           
+                </div>
+            </div>
+        </div>
+    </wt:row>
+    <wt:row align=" AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

@@ -1,0 +1,46 @@
+﻿@model ProjectFastBgo.ViewModel.EmojiMaster.PaintMapEntityVMs.PaintMapEntityVM
+
+<wt:form vm="@Model">
+    <wt:row items-per-row="ItemsPerRowEnum.One">
+        <div class="layui-row ">
+            <div class="layui-col-md8">
+                <div class="layui-form-item">
+                    <label for="PaintMapEntityVM_Entity_Img" class="layui-form-label"><font color="red">*</font>表情图</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="Entity.Img" id="PaintMapEntityVM_Entity_Img" value="@Model.Entity.Img" placeholder="" lay-verify="required" class="layui-input"  lay-filter="Entity.Imgfilter">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="layui-col-md2">
+                <div class="layui-form-item">
+                    <div class="layui-input-block" style="margin-left: 0px">
+                        <image id="EntityImgDetail" src="@Model.Entity.Img" width="128" height="128" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-col-md2">
+                <div class="layui-form-item">
+                    <div class="layui-input-block" style="margin-left: 0px">
+                        <button id="EntityImgUploadButton" name="Entity.ImgUploadButton"  class="layui-btn layui-btn-sm" type="button" lay-filter="PaintMapEntityVM.Entity_Imgbuttonfilter">选择文件</button>
+                        <input class="layui-upload-file" type="file" accept="" name="file">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <wt:combobox field="Entity.GroupId" items="AllGroupDicEntitys" enable-search="true"/>
+        <wt:textbox field="Entity.Sort" />
+
+    </wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
+<script>
+    $(function () {
+        EmojiMasterPainMapIndex.initUploadImgObj("EntityImgUploadButton",441);
+    })
+</script>

@@ -1,0 +1,31 @@
+﻿<div style="background-color:#f3f3f3;padding:10px;height:100%">
+    <wt:row items-per-row=" ItemsPerRowEnum.Two" space="10">
+        <wt:panel title="控制器" panel-type="Card">
+            <wt:row items-per-row=" ItemsPerRowEnum.One">
+                <wt:chart field="@ViewData["cd"]" height="400" is-horizontal="true" title="控制器" />
+            </wt:row>
+        </wt:panel>
+        <wt:panel title="其他" panel-type="Card">
+            <wt:row items-per-row=" ItemsPerRowEnum.One">
+                <wt:chart field="@ViewData["cd2"]" height="400" is-horizontal="true" title="其他" />
+            </wt:row>
+        </wt:panel>
+        <wt:container>
+            @if ((bool?)ViewData["debug"] == true)
+            {
+            <br /><br />
+                <p style="font-size:16px">你正在使用<font color="Red">调试模式</font>，在调试模式下，框架会：</p>
+                <p style="font-size:16px"><span class="layui-badge layui-bg-cyan">1</span>&nbsp;反射所有controller下的所有方法作为左侧菜单</p>
+                <p style="font-size:16px"><span class="layui-badge layui-bg-cyan">2</span>&nbsp;登陆时自动添加用户名和密码</p>
+                <p style="font-size:16px"><span class="layui-badge layui-bg-cyan">3</span>&nbsp;跳过权限验证</p>
+                <p style="font-size:16px">修改appsettings文件中的IsQuickDebug可关闭调试模式，<a href="http://wtmdoc.walkingtec.cn/#/QuickStart/FAQ" target="_blank">详见文档</a> </p>
+            }
+        </wt:container>
+    </wt:row>
+</div>
+<script>
+        $.get("/_framework/GetGithubStarts", function (r) {
+            $("#githubstars").html(r);
+        });
+</script>
+

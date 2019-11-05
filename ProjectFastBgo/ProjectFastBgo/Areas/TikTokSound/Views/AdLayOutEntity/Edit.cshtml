@@ -1,0 +1,14 @@
+﻿@model ProjectFastBgo.ViewModel.TikTokSound.AdLayOutEntityVMs.AdLayOutEntityVM
+
+<wt:form vm="@Model">
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:display field="Entity.AdLayOutKey" />
+        <wt:display field="Entity.Title" />
+        <wt:combobox field="Entity.OpenState" />
+    </wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

@@ -1,0 +1,10 @@
+﻿@model ProjectFastBgo.ViewModel.PushTasks.PushTasksEntityVMs.PushTasksEntityListVM
+
+<wt:searchpanel vm="@Model" reset-btn="true">
+<wt:row items-per-row="ItemsPerRowEnum.Three">
+<wt:combobox field="Searcher.Cid" empty-text="全部" />
+<wt:textbox field="Searcher.TaskTitle" />
+<wt:combobox field="Searcher.TaskState" empty-text="全部" />
+</wt:row>
+</wt:searchpanel>
+<wt:grid vm="@Model" />
